@@ -26,44 +26,44 @@ function initAzerty() {
 
 				// HUMAN PLAYER 1 KEYS //
 				case 122:
-					if (direction_hp3 != DOWN) {
+					if (direction_hp1 != DOWN) {
 						direction_hp1 = UP;
 					}
 					break;
 				case 115:
-					if (direction_hp3 != UP){
+					if (direction_hp1 != UP){
 						direction_hp1 = DOWN;
 					}
 					break;
 				case 113:
-					if (direction_hp3 != RIGHT){
+					if (direction_hp1 != RIGHT){
 						direction_hp1 = LEFT;
 					}
 					break;
 				case 100:
-					if (direction_hp3 != LEFT){
+					if (direction_hp1 != LEFT){
 						direction_hp1 = RIGHT;
 					}
 					break;
 
 				// HUMAN PLAYER 2 KEYS //
 				case 102:
-					if (direction_hp3 != DOWN) {
+					if (direction_hp2 != DOWN) {
 						direction_hp2 = UP;
 					}
 					break;
 				case 103:
-					if (direction_hp3 != UP){
+					if (direction_hp2 != UP){
 						direction_hp2 = DOWN;
 					}
 					break;
 				case 104:
-					if (direction_hp3 != RIGHT){
+					if (direction_hp2 != RIGHT){
 						direction_hp2 = LEFT;
 					}
 					break;
 				case 116:
-					if (direction_hp3 != LEFT){
+					if (direction_hp2 != LEFT){
 						direction_hp2 = RIGHT;
 					}
 				
@@ -90,22 +90,22 @@ function initAzerty() {
 					
 				// HUMAN PLAYER 4 KEYS //
 				case 56:
-					if (direction_hp3 != DOWN) {
+					if (direction_hp4 != DOWN) {
 						direction_hp4 = UP;
 					}
 					break;
 				case 53:
-					if (direction_hp3 != UP){
+					if (direction_hp4 != UP){
 						direction_hp4 = DOWN;
 					}
 					break;
 				case 52:
-					if (direction_hp3 != RIGHT){
+					if (direction_hp4 != RIGHT){
 						direction_hp4 = LEFT;
 					}
 					break;
 				case 54:
-					if (direction_hp3 != LEFT){
+					if (direction_hp4 != LEFT){
 						direction_hp4 = RIGHT;
 					}
 
@@ -137,44 +137,44 @@ function initQwerty() {
 
 				// HUMAN PLAYER 1 KEYS //
 				case 119:
-					if (direction_hp3 != DOWN) {
+					if (direction_hp1 != DOWN) {
 						direction_hp1 = UP;
 					}
 					break;
 				case 115:
-					if (direction_hp3 != UP){
+					if (direction_hp1 != UP){
 						direction_hp1 = DOWN;
 					}
 					break;
 				case 97:
-					if (direction_hp3 != RIGHT){
+					if (direction_hp1 != RIGHT){
 						direction_hp1 = LEFT;
 					}
 					break;
 				case 100:
-					if (direction_hp3 != LEFT){
+					if (direction_hp1 != LEFT){
 						direction_hp1 = RIGHT;
 					}
 					break;
 
 				// HUMAN PLAYER 2 KEYS //
 				case 102:
-					if (direction_hp3 != DOWN) {
+					if (direction_hp2 != DOWN) {
 						direction_hp2 = UP;
 					}
 					break;
 				case 103:
-					if (direction_hp3 != UP){
+					if (direction_hp2 != UP){
 						direction_hp2 = DOWN;
 					}
 					break;
 				case 104:
-					if (direction_hp3 != RIGHT){
+					if (direction_hp2 != RIGHT){
 						direction_hp2 = LEFT;
 					}
 					break;
 				case 116:
-					if (direction_hp3 != LEFT){
+					if (direction_hp2 != LEFT){
 						direction_hp2 = RIGHT;
 					}
 				
@@ -201,22 +201,22 @@ function initQwerty() {
 					
 				// HUMAN PLAYER 4 KEYS //
 				case 56:
-					if (direction_hp3 != DOWN) {
+					if (direction_hp4 != DOWN) {
 						direction_hp4 = UP;
 					}
 					break;
 				case 53:
-					if (direction_hp3 != UP){
+					if (direction_hp4 != UP){
 						direction_hp4 = DOWN;
 					}
 					break;
 				case 52:
-					if (direction_hp3 != RIGHT){
+					if (direction_hp4 != RIGHT){
 						direction_hp4 = LEFT;
 					}
 					break;
 				case 54:
-					if (direction_hp3 != LEFT){
+					if (direction_hp4 != LEFT){
 						direction_hp4 = RIGHT;
 					}
 
