@@ -14,6 +14,7 @@ function stopTimer() {
 // REFRESH SCREEN //
 
 function refreshScreen() {
+	makeDirection();
 	$("#gameCanvas").clearCanvas();
 	for (var i = map.length - 1; i >= 0; i--) {
 		for (var z = map[i].length - 1; z >= 0; z--) {
@@ -43,9 +44,9 @@ function refreshScreen() {
 function drawSquare(x_a,y_a,color) {
 	$("#gameCanvas").drawRect({
 		fillStyle: color,
-		x: x_a*10, y: y_a*10,
-		width: 10,
-		height: 10,
+		x: x_a*5, y: y_a*5,
+		width: 5,
+		height: 5,
 		fromCenter: false
 	});
 }

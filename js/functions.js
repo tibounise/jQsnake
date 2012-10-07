@@ -94,7 +94,8 @@ function launchGame() {
 	gameLaunched = true;
 	$("#gameCanvas").clearCanvas();
 	displayInfo('Jeu lancé');
-	map = makeMap();
+	makeMap();
+	makeDirection();
 	startTimer();
 	$('#pauseModal').on('hidden', function() {
 		startTimer();

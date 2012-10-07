@@ -1,15 +1,35 @@
 function makeMap() {
-	/* for (var x_a = 0; x_a < 50; x_a++) {
-		for (var y_a = 0; y_a < 50; y_a++) {
-			map[x_a][y_a] = 1;
-		}
-	} */
-	map = Array(50);
+	map = Array(100);
 	for (var i = map.length - 1; i >= 0; i--) {
-		map[i] = Array(50);
+		map[i] = Array(100);
 		for (var z = map[i].length - 1; z >= 0; z--) {
-			map[i][z] = 1;
+			map[i][z] = null;
 		};
 	};
-	return map;
+}
+
+function makeDirection() {
+	for (var i = direction_hp.length - 1; i >= 0; i--) {
+		if (direction_hp[i] == UP && position_hp[i][1] < 100) {
+			position_hp[i][1]++;
+		}
+		else if (direction_hp[i] == DOWN && position_hp[i][1] > 0) {
+			position_hp[i][1]--;
+		}
+		else if (direction_hp[i] == LEFT && position_hp[i][0] > 0) {
+			position_hp[i][0]--;
+		}
+		else if (direction_hp[i] == RIGHT && position_hp[i][0] < 100) {
+			position_hp[i][0]++;
+		}
+		else {
+			console.log('crash');
+		}
+	};
+}
+
+function addDot() {
+	for (var i = position_hp.length - 1; i >= 0; i--) {
+		map[position_hp[i][0]][position_hp[i][1]] = i;
+	};
 }
