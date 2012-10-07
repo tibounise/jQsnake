@@ -70,7 +70,7 @@ function initGameCanvas() {
 	getGameSettings();
 	
 	// Initialisation of the modal
-	$('#gameView').delay(1500).fadeToggle();
+	$('#gameView').delay(350).fadeToggle();
 
 	// Initialisation of the keyboard handler
 	initKeyboardHandler();
@@ -94,6 +94,7 @@ function launchGame() {
 	gameLaunched = true;
 	$("#gameCanvas").clearCanvas();
 	displayInfo('Jeu lancé');
+	map = makeMap();
 	startTimer();
 	$('#pauseModal').on('hidden', function() {
 		startTimer();
