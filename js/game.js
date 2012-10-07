@@ -15,23 +15,23 @@ function stopTimer() {
 
 function refreshScreen() {
 	$("#gameCanvas").clearCanvas();
-	for (var i = 49; i > 0; i--) {
-		for (var z = 49; z > 0; z--) {
+	for (var i = map.length - 1; i >= 0; i--) {
+		for (var z = map[i].length - 1; z >= 0; z--) {
 			switch (map[i][z]) {
 				case null:
-					drawSquare(x_a,y_a,'#fff');
+					drawSquare(i,z,'#fff');
 					break;
 				case 1:
-					drawSquare(x_a,y_a,'#bbb');
+					drawSquare(i,z,'#bbb');
 					break;
 				case 2:
-					drawSquare(x_a,y_a,'#214afc');
+					drawSquare(i,z,'#214afc');
 					break;
 				case 3:
-					drawSquare(x_a,y_a,'#00dcc0');
+					drawSquare(i,z,'#00dcc0');
 					break;
 				case 4:
-					drawSquare(x_a,y_a,'#84ff00');
+					drawSquare(i,z,'#84ff00');
 					break;
 			}
 		}
