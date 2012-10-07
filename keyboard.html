@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="lib/bootstrap.css">
+		<title>jQsnake - Keyboard tester</title>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+	</head>
+	<body>
+		<h1></h1>
+		<script type="text/javascript">
+			$(document).keypress(function(event) {
+				$('h1').text('Touche appuyée : '+event.keyCode);
+			});
+		</script>
+	</body>
+</html>

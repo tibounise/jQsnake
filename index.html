@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="lib/bootstrap.css">
+		<link rel="stylesheet" href="css/canvas.css">
+		<title>jQsnake</title>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src="lib/bootstrap.js"></script>
+		<script type="text/javascript" src="lib/jcanvas.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
+		<script type="text/javascript" src="js/vars.js"></script>
+		<script type="text/javascript" src="js/game.js"></script>
+		<script type="text/javascript" src="js/keyboard.js"></script>
+	</head>
+	<body>
+		<div class="container" id="configPanel">
+			<br>
+			<p class="lead">Interface de configuration de jQsnake</p>
+			<br>
+			<form class="form-horizontal" onSubmit="return false">
+				<div class="row">
+					<p class="pull-left">Joueurs physiques :</p>
+					<div class="btn-group pull-right">
+						<button class="btn player-human" id="hp1" data-toggle="buttons-checkbox">Joueur 1</button>
+						<button class="btn player-human" id="hp2" data-toggle="buttons-checkbox">Joueur 2</button>
+						<button class="btn player-human" id="hp3" data-toggle="buttons-checkbox">Joueur 3</button>
+						<button class="btn player-human" id="hp4" data-toggle="buttons-checkbox">Joueur 4</button>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="row">
+					<p class="pull-left">Joueurs à stratégie informatisée :</p>
+					<div class="btn-group pull-right">
+						<button class="btn player-computer" id="bot1" data-toggle="buttons-checkbox">Joueur 1</button>
+						<button class="btn player-computer" id="bot2" data-toggle="buttons-checkbox">Joueur 2</button>
+						<button class="btn player-computer" id="bot3" data-toggle="buttons-checkbox">Joueur 3</button>
+						<button class="btn player-computer" id="bot4" data-toggle="buttons-checkbox">Joueur 4</button>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="modal hide fade" id="strategieInfo">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>A propos de l'intelligence artificielle</h3>
+					</div>
+					<div class="modal-body">
+                        <h4>Intelligence n°1</h4>
+                        <p>Le serpent tourne au hazard</p>
+                        <h4>Intelligence n°2</h4>
+                        <p>Le serpent ne tourne pas sur sa queue ni sur un mur, mais se bloque</p>
+                        <h4>Intelligence n°3</h4>
+                        <p>Le serpent tourne avec une probabilité de 1/2 de tourner soit a roite soit a gauche, et une probabilité de 1/2 de continuer devant.</p>
+                        <h4>Intelligence n°4</h4>
+                        <p>Le serpent fait une spirale et ne tourne que dans un sens.</p>
+                    </div>
+				</div>
+
+				<div class="row">
+					<p class="pull-left">Stratégie (<a href="#strategieInfo" role="button" data-toggle="modal">a propos de la stratégie</a>) :</p>
+					<select class="pull-right">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+
+				<br>
+
+				<div class="row">
+					<p class="pull-left">Type de clavier :</p>
+					<div class="btn-group pull-right" data-toggle="buttons-radio">
+						<button type="button" class="btn" id="azerty_keyboard">AZERTY</button>
+						<button type="button" class="btn" id="qwerty_keyboard">QWERTY</button>
+					</div>
+				</div>	
+
+				<br>
+
+				<hr>
+
+				<div class="row clearfix">
+					<button type="submit" class="btn" id="playButton">Jouer</button>
+				</div>
+			</form>
+		</div>
+		<div class="hide container" id="gameView">
+			<div class="modal hide fade" id="pauseModal">
+				<div class="modal-header">
+					<h3>Pause</h3>
+				</div>
+				<div class="modal-body">
+					<button class="btn btn-warning btn-block" data-dismiss="modal" aria-hidden="true">Revenir au jeu</button>
+				</div>
+			</div>
+			<canvas id="gameCanvas" width="500" height="500"></canvas>
+			<hr>
+			<div id="gameAlert">
+				<div class="alert alert-info">
+					Jeu chargé
+				</div>
+			</div>	
+		</div>
+
+
+		<!-- Loads the application -->
+		<script type="text/javascript" src="js/application.js"></script>
+	</body>
+</html>
