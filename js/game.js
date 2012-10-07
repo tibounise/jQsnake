@@ -3,7 +3,7 @@
 function startTimer() {
 	timer = setInterval(function() {
 		refreshScreen();
-	},500); // Refresh the screen every 40 ms
+	},2000); // Refresh the screen every 40 ms
 }
 
 function stopTimer() {
@@ -15,6 +15,8 @@ function stopTimer() {
 
 function refreshScreen() {
 	makeDirection();
+	addDot();
+	sp(map);
 	$("#gameCanvas").clearCanvas();
 	for (var i = map.length - 1; i >= 0; i--) {
 		for (var z = map[i].length - 1; z >= 0; z--) {

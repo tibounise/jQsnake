@@ -9,7 +9,7 @@ function makeMap() {
 }
 
 function makeDirection() {
-	for (var i = direction_hp.length - 1; i >= 0; i--) {
+	for (var i = direction_hp.length - 1; i > 0; i--) {
 		if (direction_hp[i] == UP && position_hp[i][1] < 100) {
 			position_hp[i][1]++;
 		}
@@ -23,13 +23,15 @@ function makeDirection() {
 			position_hp[i][0]++;
 		}
 		else {
-			console.log('crash');
+			sp('crash for '+i);
+			sp(position_hp[i]);
+			sp(direction_hp);
 		}
 	};
 }
 
 function addDot() {
-	for (var i = position_hp.length - 1; i >= 0; i--) {
+	for (var i = position_hp.length - 1; i > 0; i--) {
 		map[position_hp[i][0]][position_hp[i][1]] = i;
 	};
 }
