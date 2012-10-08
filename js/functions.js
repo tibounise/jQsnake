@@ -29,8 +29,18 @@ function initConfigPanel() {
 
 	/*--~ Initialisation of the "Play" button ~--*/
 	$('#playButton').click(function () {
-		$('#configPanel').fadeToggle();
-		initGameCanvas();
+		// Get the players settings
+		getGameSettings();
+		
+		sp(hp_enabled);
+
+		if (jQuery.inArray(true,hp_enabled) != 0 || jQuery.inArray(true,bot_enabled) != 0) {
+			$('#configPanel').fadeToggle();
+			initGameCanvas();
+		}
+		else {
+			$('#errorbox').html('<div class="alert alert-error">Séléctionnez au moins 1 joueur physique ou virtuel</div>');
+		}
 	});
 
 	/*--~ Initialisation of the players buttons ~--*/
@@ -66,9 +76,6 @@ function initConfigPanel() {
 }
 
 function initGameCanvas() {
-	// Get the players settings
-	getGameSettings();
-	
 	// Initialisation of the modal
 	$('#gameView').delay(350).fadeToggle();
 
