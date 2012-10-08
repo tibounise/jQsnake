@@ -13,7 +13,7 @@ direction_hp = Array(4);
 position_hp = Array(4);
 
 direction_hp[1] = UP;
-direction_hp[2] = RIGHT;
+direction_hp[2] = LEFT;
 direction_hp[3] = LEFT;
 direction_hp[4] = DOWN;
 
@@ -26,4 +26,4 @@ hp_enabled = [false,false,false,false];
 bot_enabled = [false, false, false, false];
 
 timer = null;
-map = [];
+map = Array(50);

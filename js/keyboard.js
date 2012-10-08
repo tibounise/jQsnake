@@ -25,12 +25,12 @@ function initAzerty() {
 					break;
 
 				// HUMAN PLAYER 1 KEYS //
-				case 122:
+				case 115:
 					if (direction_hp[1] != DOWN) {
 						direction_hp[1] = UP;
 					}
 					break;
-				case 115:
+				case 122:
 					if (direction_hp[1] != UP){
 						direction_hp[1] = DOWN;
 					}
