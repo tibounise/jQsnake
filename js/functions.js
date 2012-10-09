@@ -31,10 +31,8 @@ function initConfigPanel() {
 	$('#playButton').click(function () {
 		// Get the players settings
 		getGameSettings();
-		
-		sp(hp_enabled);
 
-		if (jQuery.inArray(true,hp_enabled) != 0 || jQuery.inArray(true,bot_enabled) != 0) {
+		if (isSomethingTrue(hp_enabled) || isSomethingTrue(bot_enabled)) {
 			$('#configPanel').fadeToggle();
 			initGameCanvas();
 		}
@@ -112,19 +110,21 @@ function launchGame() {
 // ALERTS //
 
 function displayInfo(info) {
-	$('#gameAlert').html($('#gameAlert').html() + '<div class="alert alert-info">' + info + '</div>');
+	$('#gameAlert').html('<div class="alert alert-info">' + info + '</div>' + $('#gameAlert').html());
+}
+
+function displayRed(info) {
+	$('#gameAlert').html('<div class="alert alert-error">' + info + '</div>' + $('#gameAlert').html());
 }
 
 // PARAMETERS //
 
 function getGameSettings() {
-	hp_enabled[0] = $('#hp1').hasClass('active');
-	hp_enabled[1] = $('#hp2').hasClass('active');
-	hp_enabled[2] = $('#hp3').hasClass('active');
-	hp_enabled[3] = $('#hp4').hasClass('active');
+	for (var i = 1; i < 5; i++) {
+		hp_enabled[i-1] = $('#hp'+i).hasClass('active');
+	}
 
-	bot_enabled[0] = $('#bot1').hasClass('active');
-	bot_enabled[1] = $('#bot2').hasClass('active');
-	bot_enabled[2] = $('#bot3').hasClass('active');
-	bot_enabled[3] = $('#bot4').hasClass('active');
+	for (var i = 1; i < 5; i++) {
+		bot_enabled[i-1] = $('#bot'+i).hasClass('active');
+	}
 }

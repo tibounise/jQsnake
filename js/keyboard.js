@@ -9,13 +9,12 @@ function initKeyboardHandler() {
 
 function initAzerty() {
 	$('body').keypress(function(event) {
-		KeyCode = event.keyCode;
-		if (KeyCode == 13 && gameLaunched != true) {
+		if (event.keyCode == 13 && gameLaunched != true) {
 			console.log('Game launched');
 			launchGame();
 		}
-		if (KeyCode != 13 && gameLaunched == true) {
-			switch (KeyCode) {
+		if (event.keyCode != 13 && gameLaunched == true) {
+			switch (event.charCode) {
 				// Pause keys //
 				case 32:
 					if (timer != null) {
@@ -25,12 +24,12 @@ function initAzerty() {
 					break;
 
 				// HUMAN PLAYER 1 KEYS //
-				case 115:
+				case 122:
 					if (direction_hp[1] != DOWN) {
 						direction_hp[1] = UP;
 					}
 					break;
-				case 122:
+				case 115:
 					if (direction_hp[1] != UP){
 						direction_hp[1] = DOWN;
 					}
@@ -47,7 +46,7 @@ function initAzerty() {
 					break;
 
 				// HUMAN PLAYER 2 KEYS //
-				case 102:
+				case 116:
 					if (direction_hp[2] != DOWN) {
 						direction_hp[2] = UP;
 					}
@@ -57,12 +56,12 @@ function initAzerty() {
 						direction_hp[2] = DOWN;
 					}
 					break;
-				case 104:
+				case 102:
 					if (direction_hp[2] != RIGHT){
 						direction_hp[2] = LEFT;
 					}
 					break;
-				case 116:
+				case 104:
 					if (direction_hp[2] != LEFT){
 						direction_hp[2] = RIGHT;
 					}
@@ -120,7 +119,7 @@ function initAzerty() {
 
 function initQwerty() {
 	$('body').keypress(function(event) {
-		KeyCode = event.keyCode;
+		KeyCode = event.charCode;
 		if (KeyCode == 13 && gameLaunched != true) {
 			console.log('Game launched');
 			launchGame();

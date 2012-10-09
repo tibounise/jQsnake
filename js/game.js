@@ -3,7 +3,7 @@
 function startTimer() {
 	timer = setInterval(function() {
 		refreshScreen();
-	},500); // Refresh the screen every 40 ms
+	},40); // Refresh the screen every 40 ms
 }
 
 function stopTimer() {

@@ -9,12 +9,12 @@ function makeMap() {
 
 function makeDirection() {
 	for (var i = 1; i < 5; i++) {
-		if (hp_enabled[i - 1]) {
+		if (hp_enabled[i - 1] && !hp_isDead[i - 1]) {
 			if (direction_hp[i] == UP && position_hp[i][1] < 50) {
-				position_hp[i][1]++;
+				position_hp[i][1]--;
 			}
 			else if (direction_hp[i] == DOWN && position_hp[i][1] > 0) {
-				position_hp[i][1]--;
+				position_hp[i][1]++;
 			}
 			else if (direction_hp[i] == LEFT && position_hp[i][0] > 0) {
 				position_hp[i][0]--;
@@ -23,7 +23,9 @@ function makeDirection() {
 				position_hp[i][0]++;
 			}
 			else {
-				sp('crash for '+i);
+				hp_isDead[i - 1] = true;
+				sp('dead');
+				displayRed('Joueur ' + i + ' est mort (collision sur un mur).');
 			}
 		}
 	};

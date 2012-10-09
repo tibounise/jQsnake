@@ -23,7 +23,9 @@ position_hp[3] = [48,48];
 position_hp[4] = [1,48];
 
 hp_enabled = [false,false,false,false];
-bot_enabled = [false, false, false, false];
+hp_isDead = [false,false,false,false];
+bot_enabled = [false,false,false,false];
+
 
 timer = null;
 map = Array(50);
