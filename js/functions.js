@@ -100,7 +100,7 @@ function launchGame() {
 	$("#gameCanvas").clearCanvas();
 	displayInfo('Jeu lancé');
 	makeMap();
-	makeDirection();
+	addDot();
 	startTimer();
 	$('#pauseModal').on('hidden', function() {
 		startTimer();

@@ -16,6 +16,7 @@ function stopTimer() {
 function refreshScreen() {
 	makeDirection();
 	addDot();
+	sp(position_hp[1]);
 	$("#gameCanvas").clearCanvas();
 	for (var i = map.length - 1; i >= 0; i--) {
 		for (var z = map[i].length - 1; z >= 0; z--) {
