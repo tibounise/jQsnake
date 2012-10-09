@@ -10,7 +10,6 @@ function initKeyboardHandler() {
 function initAzerty() {
 	$('body').keypress(function(event) {
 		if (event.keyCode == 13 && gameLaunched != true) {
-			console.log('Game launched');
 			launchGame();
 		}
 		if (event.keyCode != 13 && gameLaunched == true) {
@@ -121,7 +120,6 @@ function initQwerty() {
 	$('body').keypress(function(event) {
 		KeyCode = event.charCode;
 		if (KeyCode == 13 && gameLaunched != true) {
-			console.log('Game launched');
 			launchGame();
 		}
 		if (KeyCode != 13 && gameLaunched == true) {
