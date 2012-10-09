@@ -37,7 +37,7 @@ function initConfigPanel() {
 			initGameCanvas();
 		}
 		else {
-			$('#errorbox').html('<div class="alert alert-error">Séléctionnez au moins 1 joueur physique ou virtuel</div>');
+			$('#errorbox').fadeOut(300).delay(200).html('<div class="alert alert-error">Séléctionnez au moins 1 joueur physique ou virtuel</div>').delay(300).fadeIn(200);
 		}
 	});
 

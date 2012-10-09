@@ -24,8 +24,7 @@ function makeDirection() {
 			}
 			else {
 				hp_isDead[i - 1] = true;
-				sp('dead');
-				displayRed('Joueur ' + i + ' est mort (collision sur un mur).');
+				displayRed('<strong>Joueur ' + i + ' est mort (collision sur un mur).</strong> <small><i>Position : '+position_hp[i][0]+';'+position_hp[i][1]+'</small>');
 			}
 		}
 	};
