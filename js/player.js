@@ -1,11 +1,11 @@
-function Player(identifier,bot,ia,position,direction) {
+function Player(array) {
 	/*--~ Variables ~--*/
-	this.identifier = identifier;
-	this.bot = bot;
-	this.ia = ia;
-	this.position = position;
-	this.prePosition = position;
-	this.direction = direction;
+	this.identifier = array.identifier;
+	this.bot = array.bot;
+	this.ia = array.ia;
+	this.position = array.position;
+	this.prePosition = array.position;
+	this.direction = array.direction;
 	this.alive = true;
 
 	/*--~ Functions ~--*/

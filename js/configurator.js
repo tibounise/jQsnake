@@ -1,4 +1,10 @@
 // CONFIGURATOR //
+/*
+
+	~TODO
+		Line 111 : Add the bots
+
+*/
 
 function Configurator() {
 	/*--~ Functions ~--*/
@@ -15,7 +21,7 @@ function Configurator() {
 
 		// Set the acitons for the play button
 		$('#playButton').click(function () {
-			if () {
+			if (this.isAbleToLauch()) {
 				$('#configPanel').fadeToggle();
 				this.launchGame();
 			}
@@ -32,8 +38,79 @@ function Configurator() {
 		this.colorButton('#hp3','btn-info');
 		this.colorButton('#hp4','btn-success');
 	};
+	this.isAbleToLauch = function() {
+		// Check if there's at least 2 or more players in the game
+		var players = 0;
+		for (var i = 1; i < 5; i++) {
+			if ($('#hp' + i).hasClass('active')) {
+				players++;
+			}
+			if ($('#bot' + i).hasClass('active')) {
+				players++;
+			}
+		};
+
+		if (players >= 2) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	};
 	this.launchGame = function() {
+		// Set the keyboard
+		if ($("#azerty_keyboard").hasClass('active')) {
+			keyboard.setLayout('AZERTY');
+		}
+		else if ($("#qwerty_keyboard").hasClass('active')) {
+			keyboard.setLayout('QWERTY');
+		}
+		else {
+			keyboard.setLayout('AZERTY');
+		}
+
+		// Add the human players
+		if ($("#hp1").hasClass('active')) {
+			game.addPlayer({
+				identifier:1,
+				bot: false,
+				ia: false,
+				position: [1,48],
+				direction: 'RIGHT'
+			});
+		}
+		else if ($("#hp2").hasClass('active')) {
+			game.addPlayer({
+				identifier:2,
+				bot: false,
+				ia: false,
+				position: [48,48],
+				direction: 'UP'
+			});
+		}
+		else if ($("#hp3").hasClass('active')) {
+			game.addPlayer({
+				identifier:3,
+				bot: false,
+				ia: false,
+				position: [48,1],
+				direction: 'LEFT'
+			});
+		}
+		else if ($("#hp4").hasClass('active')) {
+			game.addPlayer({
+				identifier:4,
+				bot: false,
+				ia: false,
+				position: [1,1],
+				direction: 'DOWN'
+			});
+		}
+
+		// Add the bots players
+
 		canvas.init();
+		game.startGame();
 	};
 	this.colorButton = function(button,cssClass) {
 		$(button).click(function() {

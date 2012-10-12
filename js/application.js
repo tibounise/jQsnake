@@ -6,6 +6,7 @@ notification = new Notification();
 timer = new Timer(40);
 configurator = new Configurator();
 game = new Game();
+keyboard = new Keyboard();
 
 // Settings up the configuration interface
 
