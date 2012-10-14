@@ -1,4 +1,11 @@
 // GAME //
+/*
+
+	~TODO
+		Line 72 : Implement IAs
+		Line 63 : checkCollision() to finish
+
+*/
 
 function Game() {
 	/*--~ Variables ~--*/
@@ -52,5 +59,18 @@ function Game() {
 	};
 	this.addPlayer = function(array) {
 		this.players.push(new Player(array));
+	};
+	this.checkCollision = function() {
+		var positions = [];
+		for (var i = this.players.length - 1; i >= 0; i--) {
+			if (positions.indexOf(this.players[i].prePosition) == -1) {
+				positions.push(this.players[i].prePosition);
+			}
+		};
+		
+	};
+	this.gameCycle = function() {
+
+		Canvas.refresh();
 	};
 }

@@ -110,6 +110,7 @@ function Configurator() {
 		// Add the bots players
 
 		canvas.init();
+		map.makeMap();
 		game.startGame();
 	};
 	this.colorButton = function(button,cssClass) {
