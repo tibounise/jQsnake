@@ -11,9 +11,8 @@ function Map() {
 	}
 
 	this.makeDots = function() {
-		positions = game.getPositions();
-		for (var i = positions.length - 1; i >= 0; i--) {
-			positions[i]
+		for (var i = game.players.length - 1; i >= 0; i--) {
+			this.map[game.players[i].position[0]][game.players[i].position[1]] = game.players[i].identifier;
 		};
 	}
 }

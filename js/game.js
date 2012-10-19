@@ -1,11 +1,4 @@
 // GAME //
-/*
-
-	~TODO
-		Line 72 : Implement IAs
-		Line 63 : checkCollision() to finish
-
-*/
 
 function Game() {
 	/*--~ Variables ~--*/
@@ -17,13 +10,14 @@ function Game() {
 	this.startGame = function() {
 		notification.blueNote('Jeu lancé');
 		this.launched = true;
+		map.makeMap();
 		timer.startTimer();
 
 		canvas.clearCanvas();
 
 		// Register the closing of the pause modal
 		$('#pauseModal').on('hidden', function() {
-			game.toggleTimer();
+			game.toggleGame();
 		});
 	};
 	this.toggleGame = function() {
@@ -33,6 +27,7 @@ function Game() {
 			this.paused = true;
 		}
 		else {
+			$('#pauseModal').modal('hide');
 			timer.startTimer();
 			this.paused = false;
 		}
@@ -40,19 +35,17 @@ function Game() {
 	this.sendKey = function(direction,player) {
 		for (var i = this.players.length - 1; i >= 0; i--) {
 			if (this.players[i].identifier == player) {
-				switch (direction) {
-					if (direction == 'UP' && this.players[i].direction != 'DOWN') {
-						this.players[i].direction = direction;
-					}
-					else if (direction == 'DOWN' && this.players[i].direction != 'UP') {
-						this.players[i].direction = direction;
-					}
-					else if (direction == 'LEFT' && this.players[i].direction != 'RIGHT') {
-						this.players[i].direction = direction;
-					}
-					else if (direction == 'RIGHT' && this.players[i].direction != 'LEFT') {
-						this.players[i].direction = direction;
-					}
+				if (direction == 'UP' && this.players[i].direction != 'DOWN') {
+					this.players[i].direction = direction;
+				}
+				else if (direction == 'DOWN' && this.players[i].direction != 'UP') {
+					this.players[i].direction = direction;
+				}
+				else if (direction == 'LEFT' && this.players[i].direction != 'RIGHT') {
+					this.players[i].direction = direction;
+				}
+				else if (direction == 'RIGHT' && this.players[i].direction != 'LEFT') {
+					this.players[i].direction = direction;
 				}
 			}
 		};
@@ -60,17 +53,7 @@ function Game() {
 	this.addPlayer = function(array) {
 		this.players.push(new Player(array));
 	};
-	this.checkCollision = function() {
-		var positions = [];
-		for (var i = this.players.length - 1; i >= 0; i--) {
-			if (positions.indexOf(this.players[i].prePosition) == -1) {
-				positions.push(this.players[i].prePosition);
-			}
-		};
-		
-	};
 	this.gameCycle = function() {
-
-		Canvas.refresh();
+		canvas.refresh();
 	};
 }

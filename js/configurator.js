@@ -21,12 +21,12 @@ function Configurator() {
 
 		// Set the acitons for the play button
 		$('#playButton').click(function () {
-			if (this.isAbleToLauch()) {
+			if (configurator.isAbleToLauch()) {
 				$('#configPanel').fadeToggle();
-				this.launchGame();
+				configurator.launchGame();
 			}
 			else {
-				$('#errorbox').hide().html('<div class="alert alert-error">Séléctionnez au moins 1 joueur physique ou virtuel</div>').delay(400).fadeIn(200);
+				$('#errorbox').hide().html('<div class="alert alert-error">Séléctionnez au moins 2 joueur physique ou virtuel</div>').delay(400).fadeIn(200);
 			}
 		});
 
@@ -75,20 +75,20 @@ function Configurator() {
 				identifier:1,
 				bot: false,
 				ia: false,
-				position: [1,48],
+				position: [1,25],
 				direction: 'RIGHT'
 			});
 		}
-		else if ($("#hp2").hasClass('active')) {
+		if ($("#hp2").hasClass('active')) {
 			game.addPlayer({
 				identifier:2,
 				bot: false,
 				ia: false,
-				position: [48,48],
+				position: [25,25],
 				direction: 'UP'
 			});
 		}
-		else if ($("#hp3").hasClass('active')) {
+		if ($("#hp3").hasClass('active')) {
 			game.addPlayer({
 				identifier:3,
 				bot: false,
@@ -97,7 +97,7 @@ function Configurator() {
 				direction: 'LEFT'
 			});
 		}
-		else if ($("#hp4").hasClass('active')) {
+		if ($("#hp4").hasClass('active')) {
 			game.addPlayer({
 				identifier:4,
 				bot: false,
@@ -110,7 +110,6 @@ function Configurator() {
 		// Add the bots players
 
 		canvas.init();
-		map.makeMap();
 		game.startGame();
 	};
 	this.colorButton = function(button,cssClass) {

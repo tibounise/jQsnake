@@ -1,8 +1,8 @@
 // TIMERS //
 
-function Timer(period) {
+function Timer() {
 	/*--~ Variables ~--*/
-	this.period = period;
+	this.period = 1000;
 	this.timer = null;
 
 	/*--~ Functions ~--*/

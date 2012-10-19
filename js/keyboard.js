@@ -13,15 +13,15 @@ function Keyboard(layout) {
 			this.layout = layout;
 		}
 	};
-	this.AZERTY = function() {
-		$.keypress(function(event){
+	this.setAZERTY = function() {
+		$(document).keypress(function(event){
 			if (event.keyCode == 13 && game.launched == false) {
 				game.startGame();
 			}
-			else if (gameLaunched == true) {
+			else if (game.launched == true) {
 				switch (event.charCode) {
 					case 32:
-						this.toggleGame();
+						game.toggleGame();
 						break;
 
 					// HP1 AZERTY KEYS
@@ -88,15 +88,16 @@ function Keyboard(layout) {
 			}
 		});
 	};
-	this.QWERTY = function() {
-		$.keypress(function(event){
+	this.setQWERTY = function() {
+		$(document).keypress(function(event){
 			if (event.keyCode == 13 && game.launched == false) {
 				game.startGame();
 			}
-			else if (gameLaunched == true) {
+			else if (game.launched == true) {
 				switch (event.charCode) {
 					case 32:
-						this.toggleGame();
+						game.toggleGame();
+						console.log('LOL');
 						break;
 
 					// HP1 AZERTY KEYS
