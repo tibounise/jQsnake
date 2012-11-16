@@ -1,5 +1,5 @@
 function Canvas() {
-
+	
 	/*--~ Functions ~--*/
 	this.init = function() {
 		$('#gameView').delay(350).fadeToggle();

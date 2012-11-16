@@ -85,7 +85,7 @@ function Configurator() {
 				bot: false,
 				ia: false,
 				position: [25,25],
-				direction: 'UP'
+				direction: 'LEFT'
 			});
 		}
 		if ($("#hp3").hasClass('active')) {
@@ -110,7 +110,6 @@ function Configurator() {
 		// Add the bots players
 
 		canvas.init();
-		game.startGame();
 	};
 	this.colorButton = function(button,cssClass) {
 		$(button).click(function() {

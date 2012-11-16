@@ -2,7 +2,7 @@
 
 function Timer() {
 	/*--~ Variables ~--*/
-	this.period = 1000;
+	this.period = 100;
 	this.timer = null;
 
 	/*--~ Functions ~--*/

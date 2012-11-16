@@ -54,6 +54,23 @@ function Game() {
 		this.players.push(new Player(array));
 	};
 	this.gameCycle = function() {
+		for (var i = this.players.length - 1; i >= 0; i--) {
+			if (this.players[i].alive) {
+				this.players[i].meditateDirection();
+			}
+		}
+		if (!this.checkLife()) {
+			timer.stopTimer();
+		}
 		canvas.refresh();
+	};
+	this.checkLife = function() {
+		for (var i = this.players.length - 1; i >= 0; i--) {
+			if ($.inArray(this.players[i].alive)) {
+				return true;
+				break;
+			}
+		}
+		return false;
 	};
 }
