@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="lib/bootstrap.css">
 		<link rel="stylesheet" href="css/canvas.css">
+		<link rel="stylesheet" href="css/bootstrap++.css">
 		<title>jQsnake</title>
 		<script type="text/javascript" src="lib/jquery.js"></script>
 		<script type="text/javascript" src="lib/bootstrap.js"></script>
@@ -16,6 +17,8 @@
 		<script type="text/javascript" src="js/notification.js"></script>
 		<script type="text/javascript" src="js/player.js"></script>
 		<script type="text/javascript" src="js/timer.js"></script>
+		<script type="text/javascript" src="js/conclusion.js"></script>
+		<script type="text/javascript" src="js/bots.js"></script>
 	</head>
 	<body>
 		<div class="container" id="configPanel">
@@ -84,7 +87,7 @@
 						<button type="button" class="btn" id="azerty_keyboard">AZERTY</button>
 						<button type="button" class="btn" id="qwerty_keyboard">QWERTY</button>
 					</div>
-				</div>	
+				</div>
 
 				<br>
 
@@ -111,8 +114,16 @@
 					Jeu chargé
 				</div>
 			</div>	
-		</div>
 
+			<div class="modal hide fade" id="conclusionMatch">
+				<div class="modal-header">
+					<h3>Fin du match</h3>
+				</div>
+				<div class="modal-body" id="conclusionMatchBody">
+                        
+				</div>
+			</div>
+		</div>
 
 		<!-- Loads the application -->
 		<script type="text/javascript" src="js/application.js"></script>

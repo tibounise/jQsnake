@@ -7,6 +7,7 @@ function Player(array) {
 	this.prePosition = array.position;
 	this.direction = array.direction;
 	this.alive = true;
+	this.move = 0;
 
 	/*--~ Functions ~--*/
 	this.meditateDirection = function() {
@@ -28,7 +29,14 @@ function Player(array) {
 		}
 
 		if (this.alive) {
+			this.checkMapCrash();
+		}
+		if (this.alive) {
 			this.checkPreCrash();
+		}
+		if (this.alive) {
+			this.applyDirection();
+			this.move += 1;
 		}
 	};
 	this.applyDirection = function() {
@@ -37,7 +45,7 @@ function Player(array) {
 	this.checkPreCrash = function() {
 		samePositionPlayers = [];
 		for (var i = game.players.length - 1; i >= 0; i--) {
-			if (this.prePosition[0] == game.players[i].prePosition[0] && this.prePosition[1] == game.players[i].prePosition[1] && this.identifier != game.players[i].identifier && this.alive) {
+			if (this.prePosition[0] == game.players[i].prePosition[0] && this.prePosition[1] == game.players[i].prePosition[1] && this.identifier != game.players[i].identifier && this.alive && game.players[i].alive) {
 				samePositionPlayers.push(game.players[i]);
 			}
 		};
@@ -46,9 +54,18 @@ function Player(array) {
 				samePositionPlayers[i].alive = false;
 			};
 			this.alive = false;
-			notification.redNote('<strong>Mort de ' + samePositionPlayers.length + ' joueurs à la même position.');
-		} else {
-			this.applyDirection();
+			notification.redNote('<strong>Mort de ' + (samePositionPlayers.length + 1) + ' joueurs à la même position.');
+		}
+	};
+	this.checkMapCrash = function() {
+		mapCase = map.map[this.prePosition[0]][this.prePosition[1]];
+		if (mapCase > 0) {
+			this.alive = false;
+			if (mapCase == this.identifier) {
+				notification.redNote('<strong>Joueur ' + this.identifier + ' est mort (collision contre lui-même).</strong> <small><i>Position : ' + this.prePosition[0] + ';' + this.prePosition[1] + '</small>');
+			} else {
+				notification.redNote('<strong>Joueur ' + this.identifier + ' est mort (collision contre le joueur ' + mapCase + ').</strong> <small><i>Position : ' + this.prePosition[0] + ';' + this.prePosition[1] + '</small>');
+			}
 		}
 	};
 }

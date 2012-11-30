@@ -12,7 +12,6 @@ function Canvas() {
 		});
 	}
 	this.refresh = function() {
-		map.makeDots();
 		this.clearCanvas();
 		for (var i = map.map.length - 1; i >= 0; i--) {
 			for (var z = map.map[i].length - 1; z >= 0; z--) {
@@ -24,13 +23,19 @@ function Canvas() {
 						this.drawSquare(i,z,'#bbb');
 						break;
 					case 2:
-						this.drawSquare(i,z,'#214afc');
+						this.drawSquare(i,z,'#1a58c7');
 						break;
 					case 3:
-						this.drawSquare(i,z,'#00dcc0');
+						this.drawSquare(i,z,'#e89630');
 						break;
 					case 4:
-						this.drawSquare(i,z,'#84ff00');
+						this.drawSquare(i,z,'#ab4435');
+						break;
+					case 5:
+						this.drawSquare(i,z,'#741f77');
+						break;
+					case 6:
+						this.drawSquare(i,z,'#e945dc');
 						break;
 				}
 			}

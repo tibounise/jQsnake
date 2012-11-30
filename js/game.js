@@ -5,6 +5,7 @@ function Game() {
 	this.launched = false;
 	this.paused = false;
 	this.players = [];
+	this.fast = false;
 
 	/*--~ Functions ~--*/
 	this.startGame = function() {
@@ -55,18 +56,26 @@ function Game() {
 	};
 	this.gameCycle = function() {
 		for (var i = this.players.length - 1; i >= 0; i--) {
+			if (this.players[i].bot && this.players[i].alive) {
+				this.players[i].direction = bots.doStrategy({
+					strategy : this.players[i].ia,
+					position : this.players[i].position
+				});
+			}
 			if (this.players[i].alive) {
 				this.players[i].meditateDirection();
 			}
 		}
 		if (!this.checkLife()) {
 			timer.stopTimer();
+			conclusion.conclusion();
 		}
+		map.makeDots();
 		canvas.refresh();
 	};
 	this.checkLife = function() {
 		for (var i = this.players.length - 1; i >= 0; i--) {
-			if ($.inArray(this.players[i].alive)) {
+			if (this.players[i].alive) {
 				return true;
 				break;
 			}

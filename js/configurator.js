@@ -35,8 +35,12 @@ function Configurator() {
 
 		// Set the colorized buttons
 		this.colorButton('#hp2','btn-primary');
-		this.colorButton('#hp3','btn-info');
-		this.colorButton('#hp4','btn-success');
+		this.colorButton('#hp3','btn-warning');
+		this.colorButton('#hp4','btn-danger');
+
+		this.colorButton('#bot1','btn-violet');
+		this.colorButton('#bot2','btn-pink');
+		this.colorButton('#bot3','btn-lime');
 	};
 	this.isAbleToLauch = function() {
 		// Check if there's at least 2 or more players in the game
@@ -75,7 +79,7 @@ function Configurator() {
 				identifier:1,
 				bot: false,
 				ia: false,
-				position: [1,25],
+				position: [0,48],
 				direction: 'RIGHT'
 			});
 		}
@@ -84,8 +88,8 @@ function Configurator() {
 				identifier:2,
 				bot: false,
 				ia: false,
-				position: [25,25],
-				direction: 'LEFT'
+				position: [48,49],
+				direction: 'UP'
 			});
 		}
 		if ($("#hp3").hasClass('active')) {
@@ -93,7 +97,7 @@ function Configurator() {
 				identifier:3,
 				bot: false,
 				ia: false,
-				position: [48,1],
+				position: [49,1],
 				direction: 'LEFT'
 			});
 		}
@@ -102,13 +106,49 @@ function Configurator() {
 				identifier:4,
 				bot: false,
 				ia: false,
-				position: [1,1],
+				position: [1,0],
 				direction: 'DOWN'
 			});
 		}
 
 		// Add the bots players
-
+		if ($("#bot1").hasClass('active')) {
+			game.addPlayer({
+				identifier:5,
+				bot: true,
+				ia: 1,
+				position: [1,1],
+				direction: 'DOWN'
+			});
+		}
+		if ($("#bot2").hasClass('active')) {
+			game.addPlayer({
+				identifier:6,
+				bot: true,
+				ia: 1,
+				position: [1,48],
+				direction: 'LEFT'
+			});
+		}
+		if ($("#bot3").hasClass('active')) {
+			game.addPlayer({
+				identifier:7,
+				bot: true,
+				ia: false,
+				position: [48,1],
+				direction: 'RIGHT'
+			});
+		}
+		if ($("#bot4").hasClass('active')) {
+			game.addPlayer({
+				identifier:8,
+				bot: true,
+				ia: false,
+				position: [48,48],
+				direction: 'UP'
+			});
+		}
+		
 		canvas.init();
 	};
 	this.colorButton = function(button,cssClass) {
