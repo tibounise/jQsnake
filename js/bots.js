@@ -23,6 +23,17 @@ function Bots() {
 		return this.int2direction(Math.floor(Math.random()*3));
 	};
 	this.strategy2 = function(array) {
-		
+		for (var i = 4 - 1; i >= 0; i--) {
+			if (i == 0 && array.position[1] > 0 && array.direction != 'DOWN') {
+				return this.int2direction(i);
+			} else if (i == 1 && array.position[1] < 49 && array.direction != 'UP') {
+				return this.int2direction(i);
+			} else if (i == 2 && array.position[0] > 0 && array.direction != 'RIGHT') {
+				return this.int2direction(i);
+			} else if (i == 3 && array.position[0] < 49 && array.direction != 'LEFT') {
+				return this.int2direction(i);
+			}
+		};
+		return this.int2direction(Math.floor(Math.random()*3));
 	};
 }

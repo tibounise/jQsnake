@@ -8,6 +8,7 @@ function Player(array) {
 	this.direction = array.direction;
 	this.alive = true;
 	this.move = 0;
+	this.traceColor = array.traceColor;
 
 	/*--~ Functions ~--*/
 	this.meditateDirection = function() {

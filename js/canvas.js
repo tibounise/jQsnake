@@ -12,13 +12,10 @@ function Canvas() {
 		});
 	}
 	this.refresh = function() {
-		this.clearCanvas();
+		// this.clearCanvas();
 		for (var i = map.map.length - 1; i >= 0; i--) {
 			for (var z = map.map[i].length - 1; z >= 0; z--) {
 				switch (map.map[i][z]) {
-					case 0:
-						this.drawSquare(i,z,'#fff');
-						break;
 					case 1:
 						this.drawSquare(i,z,'#bbb');
 						break;
@@ -41,6 +38,13 @@ function Canvas() {
 			}
 		}
 	}
+	this.newRefresh = function() {
+		for (var i = game.players.length - 1; i >= 0; i--) {
+			if (game.players[i].alive) {
+				this.drawSquare(game.players[i].position[0],game.players[i].position[1],game.players[i].traceColor);
+			}
+		}
+	};
 	this.drawSquare = function(x_a,y_a,color) {
 		$("#gameCanvas").drawRect({
 			fillStyle: color,
@@ -49,8 +53,8 @@ function Canvas() {
 			height: 10,
 			fromCenter: false
 		});
-	}
+	};
 	this.clearCanvas = function() {
 		$('#gameCanvas').clearCanvas();
-	}
+	};
 }

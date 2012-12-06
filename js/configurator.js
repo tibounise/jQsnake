@@ -80,7 +80,8 @@ function Configurator() {
 				bot: false,
 				ia: false,
 				position: [0,48],
-				direction: 'RIGHT'
+				direction: 'RIGHT',
+				traceColor: '#bbb'
 			});
 		}
 		if ($("#hp2").hasClass('active')) {
@@ -89,7 +90,8 @@ function Configurator() {
 				bot: false,
 				ia: false,
 				position: [48,49],
-				direction: 'UP'
+				direction: 'UP',
+				traceColor: '#1a58c7'
 			});
 		}
 		if ($("#hp3").hasClass('active')) {
@@ -98,7 +100,8 @@ function Configurator() {
 				bot: false,
 				ia: false,
 				position: [49,1],
-				direction: 'LEFT'
+				direction: 'LEFT',
+				traceColor: '#e89630'
 			});
 		}
 		if ($("#hp4").hasClass('active')) {
@@ -107,7 +110,8 @@ function Configurator() {
 				bot: false,
 				ia: false,
 				position: [1,0],
-				direction: 'DOWN'
+				direction: 'DOWN',
+				traceColor: '#ab4435'
 			});
 		}
 
@@ -116,36 +120,40 @@ function Configurator() {
 			game.addPlayer({
 				identifier:5,
 				bot: true,
-				ia: 1,
+				ia: 2,
 				position: [1,1],
-				direction: 'DOWN'
+				direction: 'DOWN',
+				traceColor: '#741f77'
 			});
 		}
 		if ($("#bot2").hasClass('active')) {
 			game.addPlayer({
 				identifier:6,
 				bot: true,
-				ia: 1,
+				ia: 2,
 				position: [1,48],
-				direction: 'LEFT'
+				direction: 'LEFT',
+				traceColor: '#e945dc'
 			});
 		}
 		if ($("#bot3").hasClass('active')) {
 			game.addPlayer({
 				identifier:7,
 				bot: true,
-				ia: false,
+				ia: 1,
 				position: [48,1],
-				direction: 'RIGHT'
+				direction: 'RIGHT',
+				traceColor: '#e945dc'
 			});
 		}
 		if ($("#bot4").hasClass('active')) {
 			game.addPlayer({
 				identifier:8,
 				bot: true,
-				ia: false,
+				ia: 2,
 				position: [48,48],
-				direction: 'UP'
+				direction: 'UP',
+				traceColor: '#e945dc'
 			});
 		}
 		

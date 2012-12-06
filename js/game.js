@@ -56,13 +56,14 @@ function Game() {
 	};
 	this.gameCycle = function() {
 		for (var i = this.players.length - 1; i >= 0; i--) {
-			if (this.players[i].bot && this.players[i].alive) {
-				this.players[i].direction = bots.doStrategy({
-					strategy : this.players[i].ia,
-					position : this.players[i].position
-				});
-			}
 			if (this.players[i].alive) {
+				if (this.players[i].bot) {
+					this.players[i].direction = bots.doStrategy({
+						strategy : this.players[i].ia,
+						position : this.players[i].position,
+						direction : this.players[i].direction
+					});
+				}
 				this.players[i].meditateDirection();
 			}
 		}
@@ -71,7 +72,7 @@ function Game() {
 			conclusion.conclusion();
 		}
 		map.makeDots();
-		canvas.refresh();
+		canvas.newRefresh();
 	};
 	this.checkLife = function() {
 		for (var i = this.players.length - 1; i >= 0; i--) {
