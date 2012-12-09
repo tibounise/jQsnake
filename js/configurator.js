@@ -53,8 +53,7 @@ function Configurator() {
 
 		if (players >= 2) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	};
@@ -144,6 +143,24 @@ function Configurator() {
 			});
 		}
 		
+		switch ($('#speed option:selected').val()) {
+			case 'slow':
+				timer.period = 300;
+				break;
+
+			case 'normal':
+				timer.period = 40;
+				break;
+
+			case 'fast':
+				timer.period = 1;
+				break;
+
+			default:
+				timer.period = 40;
+				break;
+		}
+
 		canvas.init();
 	};
 	this.colorButton = function(button,cssClass) {
