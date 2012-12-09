@@ -14,6 +14,7 @@ function Configurator() {
 			$('#hp' + i).popover({
 				trigger: 'hover',
 				title: 'Joueur humain #' + i,
+				html: true,
 				content: '<img src="img/hp' + i + '-keyboard.png">',
 				placement: 'bottom'
 			});
