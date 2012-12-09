@@ -14,31 +14,35 @@ function Player(array) {
 	this.meditateDirection = function() {
 		if (this.direction == 'UP' && this.position[1] > 0) {
 			this.prePosition[1] = this.position[1] - 1;
-		}
-		else if (this.direction == 'DOWN' && this.position[1] < 49) {
+		} else if (this.direction == 'DOWN' && this.position[1] < 49) {
 			this.prePosition[1] = this.position[1] + 1;
-		}
-		else if (this.direction == 'LEFT' && this.position[0] > 0) {
+		} else if (this.direction == 'LEFT' && this.position[0] > 0) {
 			this.prePosition[0] = this.position[0] - 1;
-		}
-		else if (this.direction == 'RIGHT' && this.position[0] < 49) {
+		} else if (this.direction == 'RIGHT' && this.position[0] < 49) {
 			this.prePosition[0] = this.position[0] + 1;
-		}
-		else {
+		} else {
 			this.alive = false;
 			notification.redNote('<strong>Joueur ' + this.identifier + ' est mort (collision sur un mur).</strong> <small><i>Position : ' + this.prePosition[0] + ';' + this.prePosition[1] + '</small>');
 		}
 
-		if (this.alive) {
-			this.checkMapCrash();
-		}
-		if (this.alive) {
-			this.checkPreCrash();
-		}
-		if (this.alive) {
-			this.applyDirection();
-			this.move += 1;
-		}
+		for (var i = 0; i < 3; i++) {
+			if (this.alive) {
+				switch (i) {
+					case 0:
+						this.checkMapCrash();
+						break;
+					case 1:
+						this.checkPreCrash();
+						break;
+					case 2:
+						this.applyDirection();
+						this.move += 1;
+						break;
+				}
+			} else {
+				return 0;
+			}
+		};
 	};
 	this.applyDirection = function() {
 		this.position = this.prePosition;

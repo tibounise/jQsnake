@@ -1,11 +1,3 @@
-// CONFIGURATOR //
-/*
-
-	~TODO
-		Line 111 : Add the bots
-
-*/
-
 function Configurator() {
 	/*--~ Functions ~--*/
 	this.init = function() {
@@ -148,15 +140,12 @@ function Configurator() {
 			case 'slow':
 				timer.period = 300;
 				break;
-
 			case 'normal':
 				timer.period = 40;
 				break;
-
 			case 'fast':
 				timer.period = 1;
 				break;
-
 			default:
 				timer.period = 40;
 				break;

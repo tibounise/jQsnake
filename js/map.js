@@ -6,7 +6,7 @@ function Map() {
 	this.makeMap = function() {
 		for (var i = this.map.length;i--;) {
 			this.map[i] = Array(50);
-			for (var z = this.map[i].length - 1; z >= 0; z--) {
+			for (var z = this.map[i].length;z--;) {
 				this.map[i][z] = 0;
 			};
 		};
