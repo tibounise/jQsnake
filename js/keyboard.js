@@ -21,7 +21,9 @@ function Keyboard(layout) {
 			else if (game.launched == true) {
 				switch (event.charCode) {
 					case 32:
-						game.toggleGame();
+						if (!game.ended && !game.paused) {
+							game.toggleGame();
+						}
 						break;
 
 					// HP1 AZERTY KEYS

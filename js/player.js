@@ -45,13 +45,13 @@ function Player(array) {
 	};
 	this.checkPreCrash = function() {
 		samePositionPlayers = [];
-		for (var i = game.players.length - 1; i >= 0; i--) {
+		for (var i = game.players.length;i--;) {
 			if (this.prePosition[0] == game.players[i].prePosition[0] && this.prePosition[1] == game.players[i].prePosition[1] && this.identifier != game.players[i].identifier && this.alive && game.players[i].alive) {
 				samePositionPlayers.push(game.players[i]);
 			}
 		};
 		if (samePositionPlayers.length >= 1) {
-			for (var i = samePositionPlayers.length - 1; i >= 0; i--) {
+			for (var i = samePositionPlayers.length;i--;) {
 				samePositionPlayers[i].alive = false;
 			};
 			this.alive = false;

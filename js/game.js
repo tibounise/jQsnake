@@ -4,6 +4,7 @@ function Game() {
 	this.paused = false;
 	this.players = [];
 	this.fast = false;
+	this.ended = false;
 
 	/*--~ Functions ~--*/
 	this.startGame = function() {
@@ -20,18 +21,18 @@ function Game() {
 	};
 	this.toggleGame = function() {
 		if (!this.paused) {
+			this.paused = true;
 			$('#pauseModal').modal('show');
 			timer.stopTimer();
-			this.paused = true;
 		}
 		else {
+			this.paused = false;
 			$('#pauseModal').modal('hide');
 			timer.startTimer();
-			this.paused = false;
 		}
 	};
 	this.sendKey = function(direction,player) {
-		for (var i = this.players.length - 1; i >= 0; i--) {
+		for (var i = this.players.length;i--;) {
 			if (this.players[i].identifier == player) {
 				if ((direction == 'UP' && this.players[i].direction != 'DOWN') || (direction == 'DOWN' && this.players[i].direction != 'UP') || (direction == 'LEFT' && this.players[i].direction != 'RIGHT') || (direction == 'RIGHT' && this.players[i].direction != 'LEFT')) {
 					this.players[i].direction = direction;
@@ -44,7 +45,7 @@ function Game() {
 		this.players.push(new Player(array));
 	};
 	this.gameCycle = function() {
-		for (var i = this.players.length - 1; i >= 0; i--) {
+		for (var i = this.players.length;i--;) {
 			if (this.players[i].alive) {
 				if (this.players[i].bot) {
 					this.sendKey(bots.doStrategy({
@@ -65,7 +66,7 @@ function Game() {
 	};
 	this.checkLife = function() {
 		players = 0;
-		for (var i = this.players.length - 1; i >= 0; i--) {
+		for (var i = this.players.length;i--;) {
 			if (this.players[i].alive) {
 				players++;
 			}

@@ -1,13 +1,14 @@
 function Conclusion() {
 	/*--~ Functions ~--*/
 	this.conclusion = function() {
+		game.ended = true;
 		canvas.refresh();
 		$('#conclusionMatchBody').html(this.makeConclusionText());
 		$('#conclusionMatch').modal('show');
 	};
 	this.makeConclusionText = function() {
 		text = '<strong>Scores joueurs :</strong> <br />';
-		for (var i = game.players.length - 1; i >= 0; i--) {
+		for (var i = game.players.length;i--;) {
 			if (game.players[i].alive) {
 				text += 'Joueur ' + game.players[i].identifier + ' <strong>[GAGNANT]</strong> : ' + game.players[i].move + '<br />';
 			} else {

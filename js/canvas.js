@@ -12,7 +12,7 @@ function Canvas() {
 		});
 	}
 	this.refresh = function() {
-		for (var i = game.players.length - 1; i >= 0; i--) {
+		for (var i = game.players.length;i--;) {
 			if (game.players[i].alive) {
 				this.drawSquare(game.players[i].position[0],game.players[i].position[1],game.players[i].traceColor);
 			}
