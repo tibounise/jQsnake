@@ -1,5 +1,3 @@
-// GAME //
-
 function Game() {
 	/*--~ Variables ~--*/
 	this.launched = false;
@@ -16,7 +14,6 @@ function Game() {
 
 		canvas.clearCanvas();
 
-		// Register the closing of the pause modal
 		$('#pauseModal').on('hidden', function() {
 			game.toggleGame();
 		});
@@ -36,18 +33,10 @@ function Game() {
 	this.sendKey = function(direction,player) {
 		for (var i = this.players.length - 1; i >= 0; i--) {
 			if (this.players[i].identifier == player) {
-				if (direction == 'UP' && this.players[i].direction != 'DOWN') {
+				if ((direction == 'UP' && this.players[i].direction != 'DOWN') || (direction == 'DOWN' && this.players[i].direction != 'UP') || (direction == 'LEFT' && this.players[i].direction != 'RIGHT') || (direction == 'RIGHT' && this.players[i].direction != 'LEFT')) {
 					this.players[i].direction = direction;
 				}
-				else if (direction == 'DOWN' && this.players[i].direction != 'UP') {
-					this.players[i].direction = direction;
-				}
-				else if (direction == 'LEFT' && this.players[i].direction != 'RIGHT') {
-					this.players[i].direction = direction;
-				}
-				else if (direction == 'RIGHT' && this.players[i].direction != 'LEFT') {
-					this.players[i].direction = direction;
-				}
+				break;
 			}
 		};
 	};
@@ -58,11 +47,11 @@ function Game() {
 		for (var i = this.players.length - 1; i >= 0; i--) {
 			if (this.players[i].alive) {
 				if (this.players[i].bot) {
-					this.players[i].direction = bots.doStrategy({
+					this.sendKey(bots.doStrategy({
 						strategy : this.players[i].ia,
 						position : this.players[i].position,
 						direction : this.players[i].direction
-					});
+					}),this.players[i].identifier);
 				}
 				this.players[i].meditateDirection();
 			}
@@ -72,15 +61,19 @@ function Game() {
 			conclusion.conclusion();
 		}
 		map.makeDots();
-		canvas.newRefresh();
+		canvas.refresh();
 	};
 	this.checkLife = function() {
+		players = 0;
 		for (var i = this.players.length - 1; i >= 0; i--) {
 			if (this.players[i].alive) {
-				return true;
-				break;
+				players++;
 			}
 		}
-		return false;
+		if (players > 1) {
+			return true;
+		} else {
+			return false;
+		}
 	};
 }

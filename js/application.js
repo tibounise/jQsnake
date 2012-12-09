@@ -1,5 +1,3 @@
-// Building objects
-
 canvas = new Canvas();
 map = new Map();
 notification = new Notification();
@@ -10,6 +8,5 @@ keyboard = new Keyboard();
 conclusion = new Conclusion();
 bots = new Bots();
 
-// Settings up the configuration interface
-
+keyboard.setLayout('AZERTY');
 configurator.init();

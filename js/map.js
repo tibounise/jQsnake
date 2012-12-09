@@ -1,6 +1,8 @@
 function Map() {
+	/*--~ Variables ~--*/
 	this.map = Array(50);
 
+	/*--~ Functions ~--*/
 	this.makeMap = function() {
 		for (var i = this.map.length - 1; i >= 0; i--) {
 			this.map[i] = Array(50);
@@ -9,7 +11,6 @@ function Map() {
 			};
 		};
 	}
-
 	this.makeDots = function() {
 		for (var i = game.players.length - 1; i >= 0; i--) {
 			this.map[game.players[i].position[0]][game.players[i].position[1]] = game.players[i].identifier;

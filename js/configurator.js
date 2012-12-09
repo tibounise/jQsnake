@@ -30,9 +30,6 @@ function Configurator() {
 			}
 		});
 
-		// Set the AZERTY button to default
-		$('#azerty_keyboard').button('toggle');
-
 		// Set the colorized buttons
 		this.colorButton('#hp2','btn-primary');
 		this.colorButton('#hp3','btn-warning');
@@ -62,16 +59,6 @@ function Configurator() {
 		}
 	};
 	this.launchGame = function() {
-		// Set the keyboard
-		if ($("#azerty_keyboard").hasClass('active')) {
-			keyboard.setLayout('AZERTY');
-		}
-		else if ($("#qwerty_keyboard").hasClass('active')) {
-			keyboard.setLayout('QWERTY');
-		}
-		else {
-			keyboard.setLayout('AZERTY');
-		}
 
 		// Add the human players
 		if ($("#hp1").hasClass('active')) {

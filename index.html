@@ -42,10 +42,10 @@
 				<div class="row">
 					<p class="pull-left">Joueurs à stratégie informatisée :</p>
 					<div class="btn-group pull-right">
-						<button class="btn player-computer" id="bot1" data-toggle="buttons-checkbox">Joueur 1</button>
-						<button class="btn player-computer" id="bot2" data-toggle="buttons-checkbox">Joueur 2</button>
-						<button class="btn player-computer" id="bot3" data-toggle="buttons-checkbox">Joueur 3</button>
-						<button class="btn player-computer" id="bot4" data-toggle="buttons-checkbox">Joueur 4</button>
+						<button class="btn player-computer" id="bot1" data-toggle="buttons-checkbox">Joueur 5</button>
+						<button class="btn player-computer" id="bot2" data-toggle="buttons-checkbox">Joueur 6</button>
+						<button class="btn player-computer" id="bot3" data-toggle="buttons-checkbox">Joueur 7</button>
+						<button class="btn player-computer" id="bot4" data-toggle="buttons-checkbox">Joueur 8</button>
 					</div>
 				</div>
 
@@ -58,9 +58,9 @@
 					</div>
 					<div class="modal-body">
                         <h4>Intelligence n°1</h4>
-                        <p>Le serpent tourne au hazard</p>
+                        <p>Le serpent utilise des directions aléatoires</p>
                         <h4>Intelligence n°2</h4>
-                        <p>Le serpent ne tourne pas sur sa queue ni sur un mur, mais se bloque</p>
+                        <p>Le serpent essaye d'aller à gauche, sinon à droite, sinon en haut, ou en bas. Si il ne peut effectuer aucun des choix, il prendra une direction aléatoire pour se crasher.</p>
                         <h4>Intelligence n°3</h4>
                         <p>Le serpent tourne avec une probabilité de 1/2 de tourner soit a roite soit a gauche, et une probabilité de 1/2 de continuer devant.</p>
                         <h4>Intelligence n°4</h4>
@@ -70,23 +70,13 @@
 
 				<div class="row">
 					<p class="pull-left">Stratégie (<a href="#strategieInfo" role="button" data-toggle="modal">a propos de la stratégie</a>) :</p>
-					<select class="pull-right">
+					<select class="pull-right" id="strategy">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 						<option>5</option>
 					</select>
-				</div>
-
-				<br>
-
-				<div class="row">
-					<p class="pull-left">Type de clavier :</p>
-					<div class="btn-group pull-right" data-toggle="buttons-radio">
-						<button type="button" class="btn" id="azerty_keyboard">AZERTY</button>
-						<button type="button" class="btn" id="qwerty_keyboard">QWERTY</button>
-					</div>
 				</div>
 
 				<br>
@@ -120,7 +110,7 @@
 					<h3>Fin du match</h3>
 				</div>
 				<div class="modal-body" id="conclusionMatchBody">
-					
+
 				</div>
 			</div>
 		</div>

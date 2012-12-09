@@ -1,8 +1,6 @@
-// TIMERS //
-
 function Timer() {
 	/*--~ Variables ~--*/
-	this.period = 0.1;
+	this.period = 40;
 	this.timer = null;
 
 	/*--~ Functions ~--*/
@@ -11,7 +9,6 @@ function Timer() {
 			game.gameCycle();
 		},this.period);
 	};
-
 	this.stopTimer = function() {
 		clearInterval(this.timer);
 		this.timer = null;
